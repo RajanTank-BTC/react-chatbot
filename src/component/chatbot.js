@@ -67,10 +67,32 @@ class ApiComponent extends React.Component {
 
 
 class ChatbotDemo extends React.Component {
+  state = {
+    opened: false,
+    posts: []
+  }
+
+  toggleFloating = ({ opened }) => {
+    this.setState({ opened });
+  }
+
+  apiCall = ({ steps, value }) => {
+    console.log(steps)
+    console.log(value)
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(json => this.setState({ posts: json }))
+  }
+
   render() {
+    const { opened } = this.state;
     return (
-      <div>
+      <div style={{ alignItems: 'right' }}>
         <ChatBot
+          floating={true}
+          opened={opened}
+          toggleFloating={this.toggleFloating}
+          handleEnd={this.apiCall}
           // style={{ width: '100%' }}
           steps={[
             {
@@ -117,6 +139,25 @@ class ChatbotDemo extends React.Component {
             }
           ]}
         />
+        <div>
+          <table>
+            <td>Title</td>
+            <td>Id</td>
+            <td>Message</td>
+            <tbody>
+              {this.state.posts.map((post) => {
+                return (
+                  <tr>
+                    <td>{post.userId}</td>
+                    <td>{post.title}</td>
+                    <td>{post.id}</td>
+                  </tr>
+
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }
