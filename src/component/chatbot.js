@@ -43,9 +43,8 @@ class ApiComponent extends React.Component {
     this.setState({ display: !this.state.display })
   }
 
-  handlePress = (event) => {
-
-    if (event.key === 'Enter') {
+  handleChange = (event) => {
+    if (event.target.value.length > 3) {
       fetch('https://jsonplaceholder.typicode.com/posts')
         .then(response => response.json())
         .then(json => this.setState({ posts: json }))
@@ -56,18 +55,17 @@ class ApiComponent extends React.Component {
     return (
       <div className="search-box">
         <h3>Search product</h3>
-        <input type='text' name='search' value={this.state.value} onChange={event => { this.setState({ value: event.target.value }) }}
-            onKeyPress={this.handlePress} />
-        {this.state.posts.length > 0  && 
-        <ul>
-          {this.state.posts &&
-            this.state.posts.map((post) => {
-              return (<li key={post.id} onClick={() => this.handleClick(post.title)}>
-                <title>Title</title>
-                <p>{post.id}</p>
-              </li>)
-            })}
-        </ul>}
+        <input type='text' name='search' onChange={event => { this.handleChange(event) }} />
+        {this.state.posts.length > 0 &&
+          <ul>
+            {this.state.posts &&
+              this.state.posts.map((post) => {
+                return (<li key={post.id} onClick={() => this.handleClick(post.title)}>
+                  <title>{post.title}</title>
+                  <p>{post.id}</p>
+                </li>)
+              })}
+          </ul>}
       </div>
     )
   }
@@ -100,8 +98,8 @@ class ChatbotDemo extends React.Component {
             opened={opened}
             toggleFloating={this.toggleFloating}
             handleEnd={this.apiCall}
-            floatingIcon= {chatIcon}
-            className= "chat-box"
+            floatingIcon={chatIcon}
+            className="chat-box"
             steps={[
               {
                 id: '1',
