@@ -1,0 +1,120 @@
+// Color Variable 
+$primary-color: #0CD7FF;
+$primar-dark-color: #0BBCDF;
+$lite-grey-color: #f0f0f0;
+
+
+.chat-box{
+  a{
+    &.rsc-float-button{
+      img{
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+  .rsc-container{
+    border-radius: 5px;
+    background: transparent;
+    .rsc-header{
+      border-radius: 5px 5px 0 0;
+      h2{
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      a{
+        &.rsc-header-close-button{
+          height: 24px;
+        }
+      }
+    }
+    .rsc-content{
+      background: white;
+      margin: 0;
+      padding: 20px 10px 10px;
+      height: calc(520px - 138px);
+      .rsc-ts{
+        .rsc-ts-image-container{
+          padding: 0 0 5px 0;
+          img{
+            width: 40px;
+            height: 40px;
+          }
+        }
+        .rsc-ts-bubble{
+          border-radius: 6px 6px 6px 0;
+          text-align: left;
+          max-width: calc(100% - 50px);
+        }
+        &.rsc-ts-bot{
+          .rsc-ts-image-container{
+            margin-right: 10px;
+          }
+          .rsc-ts-bubble{
+            border-radius: 6px 6px 6px 0;
+          }
+        }
+        &.rsc-ts-user{
+          .rsc-ts-image-container{
+            margin-left: 10px;
+          }
+          .rsc-ts-bubble{
+            border-radius: 6px 6px 0 6px;
+            background: $primar-dark-color;
+            color: white;
+          }
+        }
+      }
+      .rsc-cs{
+        background: $lite-grey-color;
+        border-radius: 6px;
+        margin-top: 20px;
+        .search-box{
+          width: 100%;
+          h3{
+            color: darken($lite-grey-color, 80%);
+            margin: 0 0 10px;
+            font-size: 20px;
+          }
+          input{
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 40px;
+            line-height: 40px;
+            padding: 0 15px;
+            color: darken($lite-grey-color, 80%);
+            border:1px solid darken($lite-grey-color, 40%);
+            &:focus{
+              border-color: $primar-dark-color;
+            }
+          }
+          ul{
+            margin: 20px 0 0;
+            padding: 0;
+            li{
+              list-style: none;
+              margin-bottom: 20px;
+              text-align: left;
+              cursor: pointer;
+              &:last-child{
+                margin-bottom: 0;
+              }
+              title{
+                display: block;
+                color: darken($lite-grey-color, 80%);
+                font-size: 18px;
+                line-height: 22px;
+              }
+              p{
+                color: darken($lite-grey-color, 40%);
+                font-size: 16px;
+                line-height: 20px;
+                margin: 0;  
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
