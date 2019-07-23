@@ -88,7 +88,7 @@ class ChatbotDemo extends React.Component {
   }
 
   apiCall = ({ steps, value }) => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
       .then(response => response.json())
       .then(json => this.setState({ posts: json }))
   }
@@ -124,6 +124,12 @@ class ChatbotDemo extends React.Component {
                 id: '4',
                 placeholder: 'Type how much quantity ...',
                 user: true,
+                validator: (value) => {
+                  if (!isNaN(value) && value.length > 0) {
+                    return true
+                  }
+                  return 'Please enter number only'
+                },
                 trigger: '5'
               },
               {
@@ -150,7 +156,7 @@ class ChatbotDemo extends React.Component {
               }
             ]}
           />
-          <div>
+          {/* <div>
             <table>
               <td>Title</td>
               <td>Id</td>
@@ -168,7 +174,7 @@ class ChatbotDemo extends React.Component {
                 })}
               </tbody>
             </table>
-          </div>
+          </div> */}
         </div>
       </ThemeProvider>
     )
