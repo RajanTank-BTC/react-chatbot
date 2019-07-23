@@ -76,15 +76,15 @@ $lite-grey-color: #f0f0f0;
             color: darken($lite-grey-color, 80%);
             margin: 0 0 10px;
             font-size: 20px;
-            padding: 0 20px;
+            padding: 0 15px;
           }
           input{
-            width: calc(100% - 40px);
+            width: calc(100% - 30px);
             box-sizing: border-box;
             min-height: 40px;
             line-height: 40px;
             padding: 0 15px;
-            margin: 0 20px;
+            margin: 0 15px;
             color: darken($lite-grey-color, 80%);
             border:1px solid darken($lite-grey-color, 40%);
             &:focus{
@@ -99,12 +99,13 @@ $lite-grey-color: #f0f0f0;
               padding: 0;
               li{
                 list-style: none;
-                margin-bottom: 5px;
                 text-align: left;
-                padding: 10px 20px;
+                padding: 10px 15px;
                 cursor: pointer;
+                border-top: 1px solid darken($lite-grey-color, 10%);
                 &:last-child{
                   margin-bottom: 0;
+                  border-bottom: 1px solid darken($lite-grey-color, 10%);
                 }
                 &:hover{
                   background: darken($lite-grey-color, 6%);
@@ -115,12 +116,31 @@ $lite-grey-color: #f0f0f0;
                   font-size: 18px;
                   line-height: 22px;
                   margin-bottom: 6px;
+                  small{
+                    color: darken($lite-grey-color, 40%);
+                    font-size: 12px;
+                    line-height: 20px;
+                    display: block;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                  }
                 }
-                p{
-                  color: darken($lite-grey-color, 40%);
-                  font-size: 16px;
-                  line-height: 20px;
-                  margin: 0;  
+                .details{
+                  display: flex;
+                  justify-content: space-between;
+                  p{
+                    color: black;
+                    font-size: 14px;
+                    line-height: 20px;
+                    margin: 0;
+                    small{
+                      color: darken($lite-grey-color, 40%);
+                      font-size: 12px;
+                      line-height: 20px;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                    }  
+                  }
                 }
               }
             }
