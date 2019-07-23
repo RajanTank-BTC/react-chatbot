@@ -1,7 +1,9 @@
 import React from 'react'
 import ChatBot from 'react-simple-chatbot'
-import { ThemeProvider } from 'styled-components';
-import chatIcon from '../chat.svg';
+import { ThemeProvider } from 'styled-components'
+import chatIcon from '../chat.svg'
+import 'react-perfect-scrollbar/dist/css/styles.css'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const theme = {
   background: '#f5f8fb',
@@ -45,7 +47,7 @@ class ApiComponent extends React.Component {
 
   handleChange = (event) => {
     if (event.target.value.length > 3) {
-      fetch('https://jsonplaceholder.typicode.com/posts')
+      fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
         .then(response => response.json())
         .then(json => this.setState({ posts: json }))
     }
@@ -57,15 +59,18 @@ class ApiComponent extends React.Component {
         <h3>Search product</h3>
         <input type='text' name='search' onChange={event => { this.handleChange(event) }} />
         {this.state.posts.length > 0 &&
-          <ul>
-            {this.state.posts &&
-              this.state.posts.map((post) => {
-                return (<li key={post.id} onClick={() => this.handleClick(post.title)}>
-                  <title>{post.title}</title>
-                  <p>{post.id}</p>
-                </li>)
-              })}
-          </ul>}
+          <PerfectScrollbar className="product-list">
+            <ul>
+              {this.state.posts &&
+                this.state.posts.map((post) => {
+                  return (<li key={post.id} onClick={() => this.handleClick(post.title)}>
+                    <title>{post.title}</title>
+                    <p><span>Price:</span> ${post.id}</p>
+                  </li>)
+                })}
+            </ul>
+          </PerfectScrollbar>
+        }
       </div>
     )
   }
