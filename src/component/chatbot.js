@@ -64,8 +64,12 @@ class ApiComponent extends React.Component {
               {this.state.posts &&
                 this.state.posts.map((post) => {
                   return (<li key={post.id} onClick={() => this.handleClick(post.title)}>
-                    <title>{post.title}</title>
-                    <p><span>Price:</span> ${post.id}</p>
+                    <title><small>Product Name</small>{post.title}</title>
+                    <div className="details">
+                      <p><small>Point- </small> 7698</p>
+                      <p><small>Qty- </small> 676.50</p>
+                      <p><small>Cost- </small> ${post.id}</p>
+                    </div>
                   </li>)
                 })}
             </ul>
