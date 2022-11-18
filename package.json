@@ -7,7 +7,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-perfect-scrollbar": "^1.5.3",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-simple-chatbot": "git+https://github.com/RajanTank-BTC/react-simple-chatbot.git",
     "styled-components": "^4.3.2"
   },
